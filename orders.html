@@ -151,6 +151,46 @@
             <input type="reset" value="Reset">
         </form>
     </div>
+    $(function() {
+  $("#curr").on("change",function() {
+    $(".currencies").hide();
+    $("."+this.value).show();
+  }).change();
+});
+    input.select-dropdown {
+  color: #26a69a;
+}
+.caret {
+  background:url("http://svgshare.com/i/3Bc.svg") no-repeat 90% 50%;
+  width:20px;
+  height:auto;
+}
+.currencies { display:none }
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<div class="row">
+
+  <div class="input-field col s1">
+    <select id="curr">
+          <option value="usd" selected>USD</option>
+          <option value="eur">EUR</option>
+        </select>
+    <label>Currency</label>
+  </div>
+</div>
+
+
+<ul class="currencies usd">
+  <li class="price">$1,500</li>
+  <li class="price">$2,000</li>
+  <li class="price">$342</li>
+</ul>
+<ul class="currencies eur">
+  <li class="price">1.276€</li>
+  <li class="price">1.702€</li>
+  <li class="price">291€</li>
+</ul>
+    
     <a href="Index.html">Main</a>
 
 </body>
