@@ -1,0 +1,157 @@
+
+<html>
+
+<head>
+    <script>
+        function price() {
+            var total = 0;
+
+            if (document.getElementById("shirt").checked) {
+                total += 10;
+            } else if (document.getElementById("Undershirt").checked) {
+                total += 10;
+            } else if (document.getElementById("Sweater").checked) {
+                total += 20;
+            } else if (document.getElementById("Hoodie").checked) {
+                total += 30;
+            }
+            if (document.getElementById("S").checked) {
+                total = total * (90 / 100);
+            } else if (document.getElementById("XL").checked) {
+                total += total * (10 / 100);
+            }
+            if (document.getElementById("green").selected) {
+                total += 5;
+            } else if (document.getElementById("blue").selected) {
+                total = total - 2;
+            }
+            if (document.getElementById("backwards").checked) {
+                total += 3;
+            }
+            if (document.getElementById("forward").checked) {
+                total += 3;
+            }
+            if (document.getElementById("right sleeve").checked) {
+                total += 3;
+            }
+            if (document.getElementById("left sleeve").checked) {
+                total += 3;
+            }
+            var q = document.getElementById("quantity").value;
+            total = total * Number(q);
+            document.getElementById("aa").innerText = total;
+            document.getElementById("total price").innerText = total;
+        }
+    </script>
+    <title>Juventus</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<style>
+    input[type=text],
+    [type=textarea],
+    select {
+        width: 12%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    
+    input[type=submit],
+    [type=reset] {
+        width: 7.5%;
+        background-color: #014d80;
+        color: white;
+        padding: 14px 20px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    input[type=submit]:hover {
+        background-color: #e2ac19;
+    }
+    
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+    
+    body {
+        font-family: 'David';
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <div>
+        <form action="https://formspree.io/f/moqpkgzq" method="POST">
+            <label for="fname">Order Number</label><br>
+            <input type="text" id="Order number" name="order number" value="29760734" size="10" readonly><br>
+            <label>First Name:</label><br>
+            <input type="text" name="FName" size="20"><br>
+            <label for="lname">LastName</label><br>
+            <input type="text" id="lname" name="lastname" size="20">
+            <br><br><br>
+            <label> Type of clothing:</label><br>
+            <div id="clothes">
+                <input type="radio" id="shirt" name="clothing" value="shirt" checked>
+                <label for="shirt">shirt</label><label for="price"><font size="2"> - 10 ₪ </font></label><br>
+                <input type="radio" id="Undershirt" name="clothing" value="Undershirt">
+                <label for="Undershirt">Undershirt</label><label for="price"><font size="2"> - 10 ₪ </font></label><br>
+                <input type="radio" id="Sweater" name="clothing" value="Sweater">
+                <label for="Sweater">Sweater</label><label for="price"><font size="2"> - 20 ₪ </font></label><br>
+                <input type="radio" id="Hoodie" name="clothing" value="Hoodie">
+                <label for="Hoodie">Hoodie</label><label for="price"><font size="2"> - 30 ₪ </font></label><br>
+                <input type="radio" id="Coat" name="clothing" value="Coat">
+                <label for="Coat">Coat</label><label for="price"><font size="2"> - 50 ₪ </font></label><br><br><br>
+            </div>
+            <label for="color">choose the color</label><br>
+            <select id="color of clothing" name="color of clothing">
+                <option value="red" id="red">Red</option>
+                <option value="green" id="green">Green (+5₪)</option>
+                <option value="blue" id="blue">Blue (-2₪)</option>
+                <option value="white" id="white" selected>White </option><br>
+            </select>
+            <br><br><br>
+            <label>Size:</label><br>
+            <input type="radio" id="S" name="Size" value="S">
+            <label for="S">S</label><label for="price"><font size="2"> - sale 10% </font></label><br>
+            <input type="radio" id="M" name="Size" value="M">
+            <label for="M">M</label><br>
+            <input type="radio" id="L" name="Size" value="L">
+            <label for="L">L</label><br>
+            <input type="radio" id="XL" name="Size" value="XL">
+            <label for="XL">XL</label><label for="price"><font size="2"> +10% </font></label><br><br>
+            <br><label>Position of the group logo:</label><label for="price"><font size="2"> (3₪ per logo) </font></label><br>
+            <input type="checkbox" id="backwards" name="logo" value="backwards">
+            <label for="backwards">Backwards</label><br>
+            <input type="checkbox" id="forward" name="logo" value="forward">
+            <label for="forward">Fordward</label><br>
+            <input type="checkbox" id="right sleeve" name="logo" value="right sleeve">
+            <label for="right sleeve">Right sleeve</label><br>
+            <input type="checkbox" id="left sleeve" name="logo" value="left sleeve">
+            <label for="left sleeve">Left sleeve</label><br><br>
+            <br><label>Address:</label>
+            <br>
+            <textarea name="address" rows="10" cols="30"></textarea>
+            <br> <br>
+            <label>Quantity:</label><br>
+            <input type="text" name="quantity" value="1" id="quantity" size="5"><br><br>
+            <label>Total price:</label>&nbsp<input type="button" value="calculate" onclick="price()"><br>
+            <div type="text" id="aa"></div>
+            <!--<input type="text" name="total price" id="total price" size="5" placeholder="total price" readonly>&nbsp//-->
+            <input type="submit" value="Send Order">
+            <input type="reset" value="Reset">
+        </form>
+    </div>
+
+</body>
+
+</html>
