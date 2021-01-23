@@ -157,6 +157,21 @@
 
                 <label> Bittcoin(Bit) : </label>
                 "price()" * 120000
+            
+            <script>
+                function currencyConverter(valNum){
+                if(converter.shekels.value <= 0)
+                window.alert("Enter Value Greaterthan 0");
+                else{
+
+                document.getElementById("dollar").value = (valNum/3.27).toFixed(2);
+                document.getElementById("Euro").value = (valNum/3.98).toFixed(2);
+                document.getElementById("won").value = (valNum/120000).toFixed(2);
+        
+                }
+                }
+</script>
+
            
             
             
